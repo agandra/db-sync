@@ -8,14 +8,13 @@ class SyncAction(argparse.Action):
 		
 	def __call__(self, parser, namespace, values, option_string=None):
 		if option_string == '-migration':
-			call = getattr(self, 'migration_'+values[0])
-			call(values[1:])
 			try:
 				call = getattr(self, 'migration_'+values[0])
 				call(values[1:])
-			except Exception:
+			except Exception, e:
 				print 'Not a valid migration command, please consult help'
-	
+				print e
+				
 	def migration_create(self, values): 
 		if len(values) == 1:
 			now = int(time.time())
