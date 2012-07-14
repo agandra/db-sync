@@ -1,5 +1,8 @@
 import MySQLdb
-class SyncMySQL():
+class SyncMySQL:
+	
+	def __init__(self, config):
+		self.config = config
 	
 	def sync(self):
 		print 'syncingggg'

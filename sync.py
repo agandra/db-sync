@@ -4,11 +4,12 @@ import sys, os.path, argparse, time, unicodedata, re, config
 location = os.path.basename(sys.argv[0])
 
 class SyncAction(argparse.Action):
+	config = config.config
 		
 	def __call__(self, parser, namespace, values, option_string=None):
-		self.config = config.config
-		
 		if option_string == '-migration':
+			call = getattr(self, 'migration_'+values[0])
+			call(values[1:])
 			try:
 				call = getattr(self, 'migration_'+values[0])
 				call(values[1:])
