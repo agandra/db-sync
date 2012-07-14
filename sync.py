@@ -9,17 +9,11 @@ class SyncAction(argparse.Action):
 		self.config = config.config
 		
 		if option_string == '-migration':
-			call = getattr(self, 'migration_'+values[0])
-			call(values[1:])
-			"""
 			try:
 				call = getattr(self, 'migration_'+values[0])
 				call(values[1:])
-			except AttributeError:
-				print 'Not a valid migration command, please consult help'
 			except Exception:
 				print 'Not a valid migration command, please consult help'
-			"""
 	
 	def migration_create(self, values): 
 		if len(values) == 1:
