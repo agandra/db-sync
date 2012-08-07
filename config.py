@@ -1,7 +1,7 @@
 config = {
 	'type': 'MySQL',
-	'host': 'localhost',
-	'username': 'admin',
-	'password': 'pass',
+	'host': '127.0.0.1',
+	'username': 'root',
+	'password': '',
 	'db': 'test'
 }
