@@ -5,7 +5,7 @@ location = os.path.basename(sys.argv[0])
 
 class SyncAction(argparse.Action):
 	config = config.config
-		
+	
 	def __call__(self, parser, namespace, values, option_string=None):
 		if option_string == '-migration':
 			try:
